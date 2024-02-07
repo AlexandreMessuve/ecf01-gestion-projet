@@ -1,13 +1,13 @@
 const {DataTypes} = require('sequelize');
 
 module.exports = (sequelize) => {
-    return sequelize.define('User', {
+    return sequelize.define('Project', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        username: {
+        name: {
             type: DataTypes.STRING(50),
             allowNull: false,
             validate: {
@@ -17,23 +17,9 @@ module.exports = (sequelize) => {
                 }
             }
         },
-        password: {
-            type: DataTypes.STRING(50),
+        description: {
+            type: DataTypes.TEXT,
             allowNull: false,
-            validate: {
-                len: {
-                    args: [8, 50],
-                    msg: "Password length between 8 and 50"
-                }
-            }
         },
-        firstname: {
-            type: DataTypes.STRING(50),
-            allowNull: true,
-        },
-        lastname: {
-            type: DataTypes.STRING(50),
-            allowNull: true
-        }
     });
 }
