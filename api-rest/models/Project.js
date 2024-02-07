@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
             validate: {
                 len: {
                     args: [4, 50],
-                    msg: "Username length between 4 and 50"
+                    msg: "Name length between 4 and 50"
                 }
             }
         },
