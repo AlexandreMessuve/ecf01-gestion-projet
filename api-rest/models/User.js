@@ -18,14 +18,8 @@ module.exports = (sequelize) => {
             }
         },
         password: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: {
-                    args: [8, 50],
-                    msg: "Password length between 8 and 50"
-                }
-            }
         },
         firstname: {
             type: DataTypes.STRING(50),
