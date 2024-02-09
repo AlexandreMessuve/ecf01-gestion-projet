@@ -2,11 +2,13 @@ require('dotenv/config');
 const express = require('express');
 const DB = require('./config/db');
 const allRoutes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.json()).use('/', allRoutes);
+
+app.use(express.json()).use(cors()).use('/', allRoutes);
 
 
 DB.sequelize

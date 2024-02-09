@@ -7,6 +7,11 @@ module.exports = {
             const {username, password, firstname, lastname} = req.body;
             if (username && password) {
                 const hashPassword = await bcrypt.hashSync(password, 10);
+                const existUser = await User.findOne({where: {username: username}});
+                if(existUser){
+                    res.status(402).json({message: 'Votre compte existe déjà'});
+                    return;
+                }
                 const user = {
                     username: username,
                     password: hashPassword,
