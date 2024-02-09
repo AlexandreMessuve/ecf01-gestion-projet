@@ -45,6 +45,7 @@ const delProject = async() => {
     if(resp.status === 200){
       $toast.success('Project delete successful');
       await projectsStore.setProjects(token);
+      showModal.value = !showModal.value;
     }
   }catch (e) {
     $toast.error(
