@@ -82,7 +82,7 @@ module.exports = {
             const task = await Task.findOne({where: {id: taskId}});
             const project = await Project.findOne({where: {id: task.ProjectId}});
             if(userId === project.UserId){
-                const status = await Project.destroy({where:{id: taskId}});
+                const status = await Task.destroy({where:{id: taskId}});
                 if(!status[1]){
                     res.status(200).json({message: 'Task delete with success'});
                 }else{
