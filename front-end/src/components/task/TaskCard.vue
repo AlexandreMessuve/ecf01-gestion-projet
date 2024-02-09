@@ -90,7 +90,7 @@ const delTask = () => {
       </div>
     </Dialog>
   </TransitionRoot>
-  <div class="max-w-lg min-w-[512px] max-h-80 min-h-80 p-6 flex flex-col justify-between items-center bg-white border border-gray-200 rounded-lg shadow bg-secondary">
+  <div class="max-w-lg min-w-[512px] max-h-80 min-h-80 p-6 flex flex-col justify-between items-center border border-gray-200 rounded-lg shadow bg-secondary">
     <template v-if="showForm">
       <form @submit.prevent="handleSubmit" class="max-w-sm mx-auto flex flex-col items-center">
         <div>

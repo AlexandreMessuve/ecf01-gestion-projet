@@ -104,7 +104,7 @@ const projectUpdate = async() => {
       </div>
     </Dialog>
   </TransitionRoot>
-  <div class="max-w-lg min-w-[512px] max-h-64 min-h-64 p-6 mx-2 my-2 flex flex-col justify-between items-center bg-white border border-gray-200 rounded-lg shadow bg-secondary">
+  <div class="max-w-lg min-w-[512px] max-h-64 min-h-64 p-6 mx-2 my-2 flex flex-col justify-between items-center border border-gray-200 rounded-lg shadow bg-secondary">
     <template v-if="showForm">
       <form @submit.prevent="projectUpdate" class="max-w-sm mx-auto flex flex-col items-center">
         <div>
