@@ -9,7 +9,7 @@ module.exports = {
                 const hashPassword = await bcrypt.hashSync(password, 10);
                 const existUser = await User.findOne({where: {username: username}});
                 if(existUser){
-                    res.status(402).json({message: 'Votre compte existe déjà'});
+                    res.status(400).json({message: 'Votre compte existe déjà'});
                     return;
                 }
                 const user = {
