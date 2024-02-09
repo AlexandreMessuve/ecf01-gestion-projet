@@ -7,6 +7,7 @@
 ```shell
 cd ./api-rest
 npm install
+npm run dev
 ```
 
 ### 02- Configuration
@@ -52,14 +53,14 @@ Autentification:
 ```
 - Pour avoir la liste des projets: **GET** `/api/projects`
 - Pour avoir un seul projet: **GET** `/api/projects/idProject`
-- Pour modifier un projet: **PUT** `/api/projects/idProject`
+- Pour modifier un projet: **PUT** `/api/projects/update/idProject`
 ```json
 {
   "name": "name",
   "description":"description" 
 }
 ```
-- Pour supprimer un projet: **DELETE** `/api/projects/idProject`
+- Pour supprimer un projet: **DELETE** `/api/projects/delete/idProject`
 
 
 
@@ -75,8 +76,8 @@ Autentification:
 }
  ```
 - Pour avoir la liste des tâches par projet: **GET** `/api/tasks/project/id`
-- Pour avoir un seul projet: **GET** `/api/tasks/id`
-- Pour modifier un projet: **PUT** `/api/tasks/id`
+- Pour avoir une seul tache: **GET** `/api/tasks/id`
+- Pour modifier une tache **PUT** `/api/tasks/update/id`
 ```json
 {
   "title":  "title",
@@ -86,6 +87,13 @@ Autentification:
   "projectId": 2
 }
 ```
-- Pour supprimer un projet: **DELETE** `/api/tasks/id`
+- Pour supprimer une tache: **DELETE** `/api/tasks/delete/id`
 
+## 02 - Front Vue.js
+
+```shell
+cd ./front-end
+npm install
+npm run dev
+```
 

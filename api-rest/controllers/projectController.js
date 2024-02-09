@@ -1,4 +1,4 @@
-const { Project } = require('../config/db');
+const { Project, Task } = require('../config/db');
 module.exports = {
     getAllProject: async (req, res) => {
         const userId = req.auth.userId;
@@ -67,8 +67,9 @@ module.exports = {
         try {
                 const project = await Project.findOne({where: {id: projectId}});
                 if(userId === project.UserId){
-                    const status = await Project.destroy({where:{id: projectId}});
-                    if(!status[1]){
+                    const statusPro = await Project.destroy({where:{id: projectId}});
+                    const statusTask = await Task.destroy({where: {ProjectId: projectId}});
+                    if(!statusPro[1] && !statusTask[1]){
                         res.status(200).json({message: 'Project delete with success'});
                     }else{
                         res.status(500).json({message: 'Error delete project'});

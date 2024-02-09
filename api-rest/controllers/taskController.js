@@ -34,7 +34,7 @@ module.exports = {
         const userId = req.auth.userId;
         const {title, description, priority, end_date, projectId} = req.body;
         try {
-            if(title && description && priority && end_date && projectId){
+            if(title && description && end_date && projectId){
                 const project = await Project.findOne({where: {id: projectId}});
                 if (userId === project.UserId){
                     await Task.create({title: title, description: description,priority: priority, end_date: end_date, ProjectId: projectId});
@@ -53,10 +53,11 @@ module.exports = {
     updateTask: async (req, res) => {
         const userId = req.auth.userId;
         const taskId = req.params.id;
-        const {title, description, priority, end_date, projectId} = req.body;
+        const {title, description, priority, end_date} = req.body;
         try {
-            if(title && description && priority && end_date && projectId){
-                const project = await Project.findOne({where: {id: projectId}})
+            if(title && description  && end_date){
+                const task = await Task.findOne({where: {id: taskId}});
+                const project = await Project.findOne({where: {id: task.ProjectId}})
                 if(userId === project.UserId){
                     const status = await Task.update({title: title, description: description,priority: priority, end_date: end_date}, {where:{id: taskId}});
                     if(!status[1]){
